@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
-Route::group(array('prefix' => 'api/user'), function()
+Route::group(array('prefix' => 'api'), function()
 {
 
-    Route::resource('/user', 'TesteController');
+    Route::get('/user', 'TestarController@testar');
 //    Route::resource('companies', 'CompaniesController');
 });
 
