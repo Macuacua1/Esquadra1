@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Denuncia;
 use Illuminate\Http\Request;
 
-class TesteController extends Controller
+class DenunciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-       $user=User::all();
-        return response()->json($user);
+//        $user=User::all();
+//        return response()->json($user);
     }
 
     /**
@@ -23,9 +18,9 @@ class TesteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function criar()
     {
-        //
+        return view('Denuncia.create');
     }
 
     /**
@@ -34,9 +29,21 @@ class TesteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function gravar(Request $request)
     {
-        //
+//        $denuncia= new Denuncia(array (
+//           "designacao"=> $request->get("designacao"),
+//            "descricao"=> $request->get("descricao")
+//
+//        ));
+        $denuncia=new Denuncia();
+        $denuncia->designacao=$request->designacao;
+        $denuncia->descricao=$request->descricao;
+
+        $denuncia->save();
+        return back()
+            ->with('success','Gravado com Sucesso.');
+
     }
 
     /**

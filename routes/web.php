@@ -19,3 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/user', 'TesteController@index');
+Route::get('/criaracusacao', 'AcusacaoController@criar');
+Route::get('/criardenuncia', 'DenunciaController@criar');
+Route::post('/gravaracusacao', 'AcusacaoController@gravar');
+Route::post('/gravardenuncia', 'DenunciaController@gravar');
+Route::get('/listaracusacao', 'AcusacaoController@index');
